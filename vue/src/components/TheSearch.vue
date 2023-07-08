@@ -16,6 +16,6 @@ watch(
 
 <template>
   <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <ImageInput v-model="imageData" />
+    <ImageInput v-model="state.imageData" />
   </div>
 </template>
