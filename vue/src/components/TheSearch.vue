@@ -43,7 +43,13 @@ const search = () => {
     </div>
 
     <div class="w-100 d-flex justify-content-center mt-3">
-      <button class="btn btn-primary" @click.prevent="search">Поиск</button>
+      <button
+        class="btn btn-primary"
+        :class="{ disabled: !state.imageData }"
+        @click.prevent="search"
+      >
+        Поиск
+      </button>
     </div>
   </div>
 </template>
