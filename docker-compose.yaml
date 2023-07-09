@@ -4,10 +4,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./vue/dist:/var/www/html
-      - ./nginx/nginx.conf:/tmp/nginx.conf
-    environment:
-      - FLASK_SERVER_ADDR=backend:9091
-    command: /bin/bash -c "envsubst < /tmp/nginx.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 80:80
     depends_on:
@@ -30,5 +27,13 @@ services:
 
   mongo:
     image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: faces
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     ports:
       - 27017:27017
+
+volumes:
+  mongo_data:

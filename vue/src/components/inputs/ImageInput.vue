@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, reactive, watch } from 'vue';
 
 const props = defineProps({
-  modelValue: File
+  modelValue: File,
+  resetVariable: Number
 });
 
 const state = reactive({
@@ -41,6 +42,14 @@ const handleFiles = (files: FileList) => {
 const chooseImage = () => {
   fileInput?.value?.click();
 };
+
+watch(
+  () => props.resetVariable,
+  () => {
+    state.imageData = '';
+    state.imageName = null;
+  }
+);
 </script>
 
 <template>
