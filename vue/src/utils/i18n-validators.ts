@@ -6,7 +6,7 @@ import ru from '@/translate/ru.json';
 const i18n = createI18n({
   locale: 'ru',
   allowComposition: true,
-  messages: { ru },
+  messages: { ru }
 });
 
 const withI18nMessage = createI18nMessage({ t: i18n.global.t.bind(i18n) });

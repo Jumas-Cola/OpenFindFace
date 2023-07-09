@@ -5,7 +5,7 @@ import FaceService from '@/services/FaceService';
 import type ResponseData from '@/types/ResponseData';
 import type Face from '@/types/Face';
 import { useVuelidate } from '@vuelidate/core';
-import { required } from '@/utils/i18n-validators.ts';
+import { required } from '@/utils/i18n-validators';
 
 const initialState: Face = {
   name: ''
