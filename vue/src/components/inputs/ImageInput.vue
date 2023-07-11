@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
   modelValue: File,
@@ -68,7 +71,7 @@ watch(
         v-if="!state.imageData"
         class="placeholder w-100 h-100 d-flex justify-content-center align-items-center text-muted text-center rounded p-5"
       >
-        Загрузите фото для поиска или перетащите его сюда
+        {{ t('imageInput.placeholder') }}
       </span>
       <input
         class="d-none"
@@ -80,7 +83,7 @@ watch(
     </div>
 
     <div v-if="state.imageName" class="d-flex justify-content-center align-items-center">
-      Файл:
+      {{ t('imageInput.file') }}:
       {{ state.imageName.length > 20 ? state.imageName.substring(0, 20) + '...' : state.imageName }}
     </div>
   </div>

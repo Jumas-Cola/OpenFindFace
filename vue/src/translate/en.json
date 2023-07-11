@@ -1,0 +1,22 @@
+{
+  "validations": {
+    "required": "Required field.",
+    "email": "Invalid email.",
+    "minLength": "Field must have at least {min} characters.",
+    "sameAs": "Values do not match.",
+    "url": "Invalid URL.",
+    "minValue": "Value must be greater than {min}.",
+    "maxValue": "Value must be less than {max}."
+  },
+  "search": "Search",
+  "upload": "Upload",
+  "lang": "Lang",
+  "notFound": "Not found",
+  "photo": "Photo",
+  "name": "Name",
+  "imageInput": {
+    "placeholder": "Upload photo for search or drop it here",
+    "file": "File"
+  },
+  "inputName": "Input name."
+}

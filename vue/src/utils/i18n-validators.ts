@@ -2,11 +2,12 @@ import * as validators from '@vuelidate/validators';
 import { createI18nMessage } from '@vuelidate/validators';
 import { createI18n } from 'vue-i18n';
 import ru from '@/translate/ru.json';
+import en from '@/translate/en.json';
 
 const i18n = createI18n({
-  locale: 'ru',
+  locale: localStorage.getItem('lang') || 'ru',
   allowComposition: true,
-  messages: { ru }
+  messages: { ru, en }
 });
 
 const withI18nMessage = createI18nMessage({ t: i18n.global.t.bind(i18n) });

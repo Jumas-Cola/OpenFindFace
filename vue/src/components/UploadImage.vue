@@ -6,6 +6,9 @@ import type ResponseData from '@/types/ResponseData';
 import type Face from '@/types/Face';
 import { useVuelidate } from '@vuelidate/core';
 import { required } from '@/utils/i18n-validators';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const initialState: Face = {
   name: ''
@@ -25,6 +28,7 @@ const upload = async () => {
       .then((res: ResponseData) => {
         state.resetFileVariable++;
         Object.assign(state.data, initialState);
+        v$.value.$reset();
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +51,7 @@ const v$ = useVuelidate(rules, state.data);
       </div>
 
       <div class="mb-3">
-        <label for="inputName" class="form-label">Имя</label>
+        <label for="inputName" class="form-label">{{ t('name') }}</label>
         <input
           type="name"
           class="form-control"
@@ -55,7 +59,7 @@ const v$ = useVuelidate(rules, state.data);
           aria-describedby="nameHelp"
           v-model="state.data.name"
         />
-        <div id="nameHelp" class="form-text">Введите имя.</div>
+        <div id="nameHelp" class="form-text">{{ t('inputName') }}</div>
 
         <div class="input-errors" v-for="error of v$.name.$errors" :key="error.$uid">
           <div class="text-danger">{{ error.$message }}</div>
@@ -67,7 +71,7 @@ const v$ = useVuelidate(rules, state.data);
         :class="{ disabled: !state.imageData }"
         @click.prevent="upload"
       >
-        Загрузить
+        {{ t('upload') }}
       </button>
     </form>
   </div>

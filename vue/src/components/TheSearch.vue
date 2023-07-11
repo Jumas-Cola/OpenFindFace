@@ -5,6 +5,9 @@ import FaceService from '@/services/FaceService';
 import FaceCardItem from '@/components/face/FaceCardItem.vue';
 import type ResponseData from '@/types/ResponseData';
 import type Face from '@/types/Face';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const state = reactive({
   imageData: undefined as File | undefined,
@@ -39,7 +42,7 @@ const search = () => {
         :face-data="state.searchResult"
         class="w-50"
       />
-      <div v-if="state.notFound" class="d-flex justify-content-center">Ничего не найдено</div>
+      <div v-if="state.notFound" class="d-flex justify-content-center">{{ t('notFound') }}</div>
     </div>
 
     <div class="w-100 d-flex justify-content-center mt-3">
@@ -48,7 +51,7 @@ const search = () => {
         :class="{ disabled: !state.imageData }"
         @click.prevent="search"
       >
-        Поиск
+        {{ t('search') }}
       </button>
     </div>
   </div>
