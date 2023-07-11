@@ -21,6 +21,6 @@ To get started with OpenFindFace, follow these steps:
 Contributions to OpenFindFace are welcome! If you would like to contribute, please follow the guidelines outlined in the [CONTRIBUTING.md](https://github.com/Jumas-Cola/OpenFindFace/blob/main/CONTRIBUTING.md) file.
 
 ## License
-OpenFindFace is licensed under the [MIT License](https://github.com/Jumas-Cola/OpenFindFace/blob/main/LICENSE).
+OpenFindFace is licensed under the [MIT License](https://github.com/Jumas-Cola/OpenFindFace/blob/master/LICENSE.txt).
 
 For more information about the project, please visit the [GitHub repository](https://github.com/Jumas-Cola/OpenFindFace).
