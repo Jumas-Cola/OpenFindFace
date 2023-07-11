@@ -13,49 +13,24 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/Projects/OpenFindFace/vue/env.d.ts
-badd +2 ~/Projects/OpenFindFace/vue/tsconfig.app.json
-badd +7 ~/Projects/OpenFindFace/vue/src/main.ts
-badd +17 ~/Projects/OpenFindFace/vue/src/router/index.ts
-badd +6 ~/Projects/OpenFindFace/vue/src/views/HomeView.vue
-badd +2 ~/Projects/OpenFindFace/vue/src/components/TheSearch.vue
-badd +13 ~/Projects/OpenFindFace/vue/src/App.vue
-badd +8 ~/Projects/OpenFindFace/vue/src/components/HelloWorld.vue
-badd +1 ~/Projects/OpenFindFace/vue/src/assets/main.css
-badd +6 ~/Projects/OpenFindFace/vue/src/components/nav/NavLink.vue
-badd +5 ~/Projects/OpenFindFace/vue/src/views/UploadView.vue
-badd +36 ~/Projects/OpenFindFace/vue/src/assets/base.css
-badd +1 ~/Projects/OpenFindFace/vue/src/stores/counter.ts
-badd +1 ~/Projects/OpenFindFace/vue/src/components/__tests__/HelloWorld.spec.ts
-badd +30 ~/Projects/OpenFindFace/vue/src/components/inputs/ImageInput.vue
-badd +7 ~/Projects/OpenFindFace/vue/tsconfig.json
-badd +3 ~/Projects/OpenFindFace/vue/.prettierrc.json
+badd +1 ~/Projects/OpenFindFace/vue/src/components/TheSearch.vue
+badd +22 ~/Projects/OpenFindFace/vue/src/main.ts
+badd +8 ~/Projects/OpenFindFace/vue/src/utils/i18n-validators.ts
+badd +8 ~/Projects/OpenFindFace/vue/src/components/LangSelect.vue
+badd +2 ~/Projects/OpenFindFace/vue/src/components/nav/NavLink.vue
+badd +21 ~/Projects/OpenFindFace/vue/src/App.vue
+badd +12 ~/Projects/OpenFindFace/vue/src/translate/ru.json
+badd +12 ~/Projects/OpenFindFace/vue/src/translate/en.json
 argglobal
 %argdel
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit ~/Projects/OpenFindFace/vue/src/components/TheSearch.vue
-argglobal
-balt ~/Projects/OpenFindFace/vue/src/components/__tests__/HelloWorld.spec.ts
-setlocal fdm=expr
-setlocal fde=nvim_treesitter#foldexpr()
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-let s:l = 11 - ((10 * winheight(0) + 18) / 36)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 11
-normal! 0
-tabnext
-edit ~/Projects/OpenFindFace/vue/src/components/inputs/ImageInput.vue
+edit ~/Projects/OpenFindFace/vue/src/components/LangSelect.vue
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -72,12 +47,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 23 + 79) / 158)
-exe 'vert 2resize ' . ((&columns * 134 + 79) / 158)
+exe 'vert 1resize ' . ((&columns * 30 + 79) / 158)
+exe 'vert 2resize ' . ((&columns * 127 + 79) / 158)
 argglobal
 enew
-file NvimTree_2
-balt ~/Projects/OpenFindFace/vue/src/components/inputs/ImageInput.vue
+file NvimTree_1
 setlocal fdm=manual
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}
@@ -88,6 +62,7 @@ setlocal fdn=20
 setlocal nofen
 wincmd w
 argglobal
+balt ~/Projects/OpenFindFace/vue/src/utils/i18n-validators.ts
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}
@@ -96,18 +71,18 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 30 - ((29 * winheight(0) + 18) / 36)
+let s:l = 8 - ((7 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 30
-normal! 06|
+keepjumps 8
+normal! 037|
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 23 + 79) / 158)
-exe 'vert 2resize ' . ((&columns * 134 + 79) / 158)
+exe 'vert 1resize ' . ((&columns * 30 + 79) / 158)
+exe 'vert 2resize ' . ((&columns * 127 + 79) / 158)
 tabnext
-edit ~/Projects/OpenFindFace/vue/src/views/UploadView.vue
+edit ~/Projects/OpenFindFace/vue/src/main.ts
 argglobal
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
@@ -117,12 +92,63 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 5 - ((4 * winheight(0) + 18) / 36)
+let s:l = 14 - ((13 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 5
-normal! 011|
+keepjumps 14
+normal! 022|
+tabnext
+edit ~/Projects/OpenFindFace/vue/src/translate/en.json
+argglobal
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 12 - ((11 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 12
+normal! 015|
+tabnext
+edit ~/Projects/OpenFindFace/vue/src/translate/ru.json
+argglobal
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 12 - ((11 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 12
+normal! 016|
+tabnext
+edit ~/Projects/OpenFindFace/vue/src/App.vue
+argglobal
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 21 - ((20 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 21
+normal! 09|
 tabnext
 edit ~/Projects/OpenFindFace/vue/src/components/TheSearch.vue
 argglobal
@@ -134,13 +160,13 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 2 - ((1 * winheight(0) + 18) / 36)
+let s:l = 13 - ((9 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
-normal! 026|
-tabnext 2
+keepjumps 13
+normal! 033|
+tabnext 1
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
