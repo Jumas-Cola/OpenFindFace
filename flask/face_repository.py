@@ -36,19 +36,28 @@ class FaceRepository:
         self.db = dbClient
 
     def get_by_array(self, face_encoding: ndarray):
-        # TODO: Переписать на более оптимальное сравнение
-        faces = self.db.faces.faces.find({})
-        for face in faces:
-            results = compare_faces([face_encoding], np.array(face['image']))
-            if results[0]:
-                return face
-        return False
+        faces = self.db.faces.faces.find({
+            '$expr': {
+                '$function': {
+                    'body': '''function(image) {{
+                      const faceArr = {face_encoding};
+                      let sum = 0;
+                      for (let i = 0; i < image.length; i++) {{
+                        sum += Math.pow(image[i] - faceArr[i], 2);
+                      }}
+                      return Math.sqrt(sum) < 0.6;
+                    }}'''.format(face_encoding=json.dumps(face_encoding.tolist())),
+                    'args': ["$image"],
+                    'lang': "js"
+                }
+            }
+        })
+        return faces
 
     def create(self, data: dict, face_vector: ndarray):
         face_data = {
             "data": json.dumps(data, ensure_ascii=False),
             "image": list(face_vector)
         }
-        
-        self.db.faces.faces.insert_one(face_data)
 
+        self.db.faces.faces.insert_one(face_data)

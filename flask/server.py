@@ -40,12 +40,17 @@ def search():
 
         if len(face_encodings) > 0:
             face_encoding = face_encodings[0]
+            faces = face_repo.get_by_array(face_encoding)
 
-            face = face_repo.get_by_array(face_encoding)
+            data = []
+            for face in faces:
+                data_item = json.loads(face['data'])
+                data_item['id'] = str(face.get('_id'))
+                data.append(data_item)
 
-            if face:
+            if data:
                 response = app.response_class(
-                    response=face['data'],
+                    response=json.dumps(data, ensure_ascii=False),
                     status=200,
                     mimetype='application/json'
                 )
@@ -80,9 +85,8 @@ def upload():
 
         if len(face_encodings) > 0:
             face_encoding = face_encodings[0]
-
-            face = face_repo.get_by_array(face_encoding)
-            if not face:
+            faces = list(face_repo.get_by_array(face_encoding))
+            if not faces:
                 data = json.loads(request.form.get('data'))
                 data["image"] = image_path
                 face_repo.create(data, face_encoding)
