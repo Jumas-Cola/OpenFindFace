@@ -11,7 +11,7 @@ const { t } = useI18n();
 
 const state = reactive({
   imageData: undefined as File | undefined,
-  searchResult: null as null | Face,
+  searchResult: null as null | Array<Face>,
   notFound: false as boolean
 });
 
@@ -37,15 +37,6 @@ const search = () => {
     </div>
 
     <div class="w-100 d-flex justify-content-center mt-3">
-      <FaceCardItem
-        v-if="state.searchResult && !state.notFound"
-        :face-data="state.searchResult"
-        class="w-50"
-      />
-      <div v-if="state.notFound" class="d-flex justify-content-center">{{ t('notFound') }}</div>
-    </div>
-
-    <div class="w-100 d-flex justify-content-center mt-3">
       <button
         class="btn btn-primary"
         :class="{ disabled: !state.imageData }"
@@ -53,6 +44,19 @@ const search = () => {
       >
         {{ t('search') }}
       </button>
+    </div>
+
+    <div class="w-100 d-flex justify-content-center mt-3">
+      <div v-if="state.searchResult && !state.notFound" class="w-50">
+        <FaceCardItem
+          v-for="face in state.searchResult"
+          :face-data="face"
+          :key="face.id"
+          class="w-100"
+        />
+      </div>
+
+      <div v-if="state.notFound" class="d-flex justify-content-center">{{ t('notFound') }}</div>
     </div>
   </div>
 </template>
