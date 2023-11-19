@@ -45,7 +45,7 @@ class FaceRepository:
                       for (let i = 0; i < image.length; i++) {{
                         sum += Math.pow(image[i] - faceArr[i], 2);
                       }}
-                      return Math.sqrt(sum) < 0.6;
+                      return Math.sqrt(sum) < 0.5;
                     }}'''.format(face_encoding=json.dumps(face_encoding.tolist())),
                     'args': ["$image"],
                     'lang': "js"

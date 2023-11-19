@@ -1,2 +1,3 @@
 Session.nvim
 flask/static/uploads/
+flask/__pycache__/
