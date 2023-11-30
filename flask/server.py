@@ -44,7 +44,7 @@ def search():
 
             data = []
             for face in faces:
-                data_item = json.loads(face['data'])
+                data_item = face['data']
                 data_item['id'] = str(face.get('_id'))
                 data.append(data_item)
 

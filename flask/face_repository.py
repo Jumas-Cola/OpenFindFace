@@ -56,7 +56,7 @@ class FaceRepository:
 
     def create(self, data: dict, face_vector: ndarray):
         face_data = {
-            "data": json.dumps(data, ensure_ascii=False),
+            "data": data,
             "image": list(face_vector)
         }
 
